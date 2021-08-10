@@ -252,16 +252,13 @@ public class EmployeeDAO {
 				String sql = "SELECT AVG(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID";
 				
 				st = con.prepareStatement(sql);
-				
-				
-				rs = st.executeQuery();
 			
+				rs = st.executeQuery();
+				
 				while(rs.next()) {
-					EmployeeDTO employeeDTO = new EmployeeDTO();
-					
-					employeeDTO.setSalary(rs.getInt("avg(salary)"));
-					
-					ar.add(null);
+					 
+					double avg = rs.getDouble(1);
+					ar.add(avg);
 				
 				}
 				

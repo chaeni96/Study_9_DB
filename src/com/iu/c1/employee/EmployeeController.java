@@ -22,12 +22,12 @@ public class EmployeeController {
 		employeeView.view(employeeDTO);
 		
 		//3. last_name을 검색해서 정보 출력
-		 ArrayList<EmployeeDTO> ar2 = employeeDAO.getSearch("Jones");
-		 employeeView.view(ar2);
+		 ArrayList<EmployeeDTO> ar1 = employeeDAO.getSearch("Jones");
+		 employeeView.view(ar1);
 		
 		//4. First_name을 검색해서 정보 출력
-		ArrayList<EmployeeDTO> ar3 = employeeDAO.getSearch1("Steven");
-		employeeView.view(ar3);
+		ArrayList<EmployeeDTO> ar2 = employeeDAO.getSearch1("Steven");
+		employeeView.view(ar2);
 		
 		//5-1. 전체 평균 급여
 		double avg = employeeDAO.getAvg();

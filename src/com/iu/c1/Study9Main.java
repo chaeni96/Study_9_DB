@@ -14,6 +14,9 @@ public class Study9Main {
 	
 		// 메인 메서드
 		
+		LocationController lc  = new LocationController();
+		lc.start();
+		
 		EmployeeController ec = new EmployeeController();
 		ec.start();
 	}
