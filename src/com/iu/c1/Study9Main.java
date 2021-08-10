@@ -11,9 +11,8 @@ import com.iu.c1.util.DBConnect;
 public class Study9Main {
 
 	public static void main(String[] args) {
-		
-//		LocationController lc = new LocationController();
-//		lc.start();
+	
+		// 메인 메서드
 		
 		EmployeeController ec = new EmployeeController();
 		ec.start();

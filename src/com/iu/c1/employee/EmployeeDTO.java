@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class EmployeeDTO {
 
+	//멤버 변수
+	
 	private int employee_id;
 	private String first_name;
 	private String last_name;
@@ -15,6 +17,8 @@ public class EmployeeDTO {
 	private double commission_pct;
 	private int manager_id;
 	private int department_id;
+	
+	//getter, setter
 	
 	public int getEmployee_id() {
 		return employee_id;

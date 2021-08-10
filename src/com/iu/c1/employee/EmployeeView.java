@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class EmployeeView {
 
-	//출력 전문 메서드
+	//출력 메서드
 	
 	//정보 한명 출력
 	public void view(EmployeeDTO employeeDTO) {

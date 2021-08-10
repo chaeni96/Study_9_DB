@@ -57,7 +57,7 @@ public class EmployeeDAO {
 			}
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}finally {
 			dbConnect.disConnect(rs, st, con);
@@ -103,7 +103,7 @@ public class EmployeeDAO {
 				}
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}finally {
 				dbConnect.disConnect(rs, st, con);
@@ -150,7 +150,7 @@ public class EmployeeDAO {
 					
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}finally {
 				dbConnect.disConnect(rs, st, con);
@@ -197,7 +197,7 @@ public class EmployeeDAO {
 					
 				}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}finally {
 				dbConnect.disConnect(rs, st, con);
@@ -229,7 +229,7 @@ public class EmployeeDAO {
 				avg = rs.getDouble(1);
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}finally {
 				dbConnect.disConnect(rs, st, con);
@@ -266,7 +266,7 @@ public class EmployeeDAO {
 				}
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}finally {
 				dbConnect.disConnect(rs, st, con);
