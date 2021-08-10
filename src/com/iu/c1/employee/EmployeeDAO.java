@@ -9,6 +9,7 @@ import com.iu.c1.util.DBConnect;
 
 public class EmployeeDAO {
 	
+	
 	private DBConnect dbConnect;
 	
 	public EmployeeDAO() {
@@ -238,12 +239,12 @@ public class EmployeeDAO {
 		
 		//5-2. 부서별 평균 급여의 정보 출력
 		
-		public ArrayList<EmployeeDTO> getAvgs() {
+		public ArrayList<Double> getAvgs() {
 			Connection con = null;
 			PreparedStatement st = null;
 			ResultSet rs = null;
 			
-			ArrayList<EmployeeDTO> ar = new ArrayList<EmployeeDTO>();
+			ArrayList<Double> ar  = new ArrayList<Double>();
 			
 			try {
 				con = dbConnect.getConnect();
@@ -252,16 +253,16 @@ public class EmployeeDAO {
 				
 				st = con.prepareStatement(sql);
 				
-				rs = st.executeQuery();
 				
+				rs = st.executeQuery();
+			
 				while(rs.next()) {
 					EmployeeDTO employeeDTO = new EmployeeDTO();
 					
-				
-					employeeDTO.setSalary(rs.getInt("salary"));
-					employeeDTO.setDepartment_id(rs.getInt("department_id"));
+					employeeDTO.setSalary(rs.getInt("avg(salary)"));
 					
-					ar.add(employeeDTO);
+					ar.add(null);
+				
 				}
 				
 			} catch (Exception e) {

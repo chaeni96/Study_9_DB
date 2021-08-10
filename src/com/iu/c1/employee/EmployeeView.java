@@ -33,9 +33,19 @@ public class EmployeeView {
 		
 	}
 	
-	//평균 출력
+	//전체 평균 급여 출력
 	public void view(double avg) {
 		System.out.println("전체 평균 급여 : "+avg);
 	}
 	
+	//부서별 평균 급여 출력
+	public void view1(ArrayList<Double> ar) {
+		
+			for(int i = 0; i<ar.size(); i++) {
+				System.out.println(ar.get(i));
+			}
+		
+		
+	}
+
 }

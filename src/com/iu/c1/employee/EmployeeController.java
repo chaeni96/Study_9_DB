@@ -34,7 +34,7 @@ public class EmployeeController {
 		//employeeView.view(avg);
 		
 		//5-2. 부서별 평균 급여
-		ArrayList<EmployeeDTO> avgs = employeeDAO.getAvgs();
-		employeeView.view(avgs);
+		ArrayList<Double> avgs = employeeDAO.getAvgs();
+		employeeView.view1(avgs);
 	}
 }
