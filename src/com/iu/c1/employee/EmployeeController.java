@@ -14,27 +14,33 @@ public class EmployeeController {
 	
 	public void start() {
 		//1. 전체 사원 출력
-		ArrayList<EmployeeDTO> ar = employeeDAO.getList();
-		employeeView.view(ar);
+		//ArrayList<EmployeeDTO> ar = employeeDAO.getList();
+		//employeeView.view(ar);
 		
 		//2. 사원 번호를 입력해서 사원 한명 정보 출력
-		EmployeeDTO employeeDTO = employeeDAO.getOne(150);
-		employeeView.view(employeeDTO);
+		//EmployeeDTO employeeDTO = employeeDAO.getOne(150);
+		//employeeView.view(employeeDTO);
 		
 		//3. last_name을 검색해서 정보 출력
-		 ArrayList<EmployeeDTO> ar1 = employeeDAO.getSearch("Jones");
-		 employeeView.view(ar1);
+		 //ArrayList<EmployeeDTO> ar1 = employeeDAO.getSearch("Jones");
+		 //employeeView.view(ar1);
 		
 		//4. First_name을 검색해서 정보 출력
-		ArrayList<EmployeeDTO> ar2 = employeeDAO.getSearch1("Steven");
-		employeeView.view(ar2);
+		//ArrayList<EmployeeDTO> ar2 = employeeDAO.getSearch1("Steven");
+		//employeeView.view(ar2);
 		
 		//5-1. 전체 평균 급여
-		double avg = employeeDAO.getAvg();
-		employeeView.view(avg);
+		//double avg = employeeDAO.getAvg();
+		//employeeView.view(avg);
 		
 		//5-2. 부서별 평균 급여
-		ArrayList<Double> avgs = employeeDAO.getAvgs();
-		employeeView.view1(avgs);
+		//ArrayList<Double> avgs = employeeDAO.getAvgs();
+		//employeeView.view1(avgs);
+		
+		
+		EmployeeDTO employeeDTO = new EmployeeDTO();
+		employeeDTO.setEmployee_id(101);
+		Emp_DepartDTO emp_DepartDTO = employeeDAO.getJoin(employeeDTO);
+		employeeView.view(emp_DepartDTO);
 	}
 }

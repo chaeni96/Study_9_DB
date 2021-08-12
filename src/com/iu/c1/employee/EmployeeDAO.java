@@ -3,8 +3,10 @@ package com.iu.c1.employee;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.iu.c1.department.DepartmentDTO;
 import com.iu.c1.util.DBConnect;
 
 public class EmployeeDAO {
@@ -16,6 +18,58 @@ public class EmployeeDAO {
 		dbConnect = new DBConnect();
 	}
 
+	//getJoin 
+	
+	public Emp_DepartDTO getJoin(EmployeeDTO employeeDTO) {
+		
+		Connection con = null;
+		PreparedStatement st= null;
+		ResultSet rs= null;
+		Emp_DepartDTO emp_DepartDTO = null;
+		
+		try {
+			con = dbConnect.getConnect();
+			
+			/*
+			 * String sql = "SELECT E.LAST_NAME, E.SALARY, E.HIRE_DATE, D.DEPARTMENT_NAME "
+			 * + "FROM EMPLOYEES E INNER JOIN DEPARTMENTS D " +
+			 * "ON(E.DEPARTMENT_ID = D.DEPARTMENT_ID ) " + "WHERE E.EMPLOYEE_ID = ? ";
+			 */
+			
+			StringBuffer sb = new StringBuffer();
+			sb.append("SELECT E.LAST_NAME, E.SALARY, E.HIRE_DATE, D.DEPARTMENT_NAME");
+			sb.append(" FROM EMPLOYEES E inner join DEPARTMENTS D");
+			sb.append(" ON(E.DEPARTMENT_ID = D.DEPARTMENT_ID )");
+			sb.append(" WHERE E.EMPLOYEE_ID = ?");
+			
+			st = con.prepareStatement(sb.toString());
+			
+			st.setInt(1, employeeDTO.getEmployee_id());
+			
+			rs = st.executeQuery();
+						
+			if(rs.next()) {
+	
+				emp_DepartDTO = new Emp_DepartDTO();
+				emp_DepartDTO.setDepartmentDTO(new DepartmentDTO());
+				
+				emp_DepartDTO.setLast_name(rs.getString("last_name"));
+				emp_DepartDTO.setSalary(rs.getInt("salary"));
+				emp_DepartDTO.setHire_date(rs.getDate("hire_date"));
+				emp_DepartDTO.getDepartmentDTO().setDepartment_name(rs.getString("department_name"));
+				
+			}
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			dbConnect.disConnect(rs, st, con);
+		}
+		return emp_DepartDTO;
+	}
+	
+	
 	//getList - 전체 사원 출력
 	public ArrayList<EmployeeDTO> getList() {
 		

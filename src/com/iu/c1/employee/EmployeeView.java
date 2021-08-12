@@ -47,5 +47,13 @@ public class EmployeeView {
 		
 		
 	}
+	
+	public void view3(Emp_DepartDTO emp_DepartDTO) {
+		System.out.println(emp_DepartDTO.getLast_name());
+		System.out.println(emp_DepartDTO.getSalary());
+		System.out.println(emp_DepartDTO.getHire_date());
+		System.out.println(emp_DepartDTO.getDepartmentDTO().getDepartment_name());
+		
+	}
 
 }
